@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部图片显示view -->
+  <view class="topAdvertiseStyle">
+    <image class="userinfo-avatar" src="http://pic2.ooopic.com/12/19/22/62bOOOPICef_1024.jpg" background-size="cover"></image>
+  </view>
+  
+  <!-- 相关数量显示view -->
+  <view class="voteTicksCountStyle">
+    <button bindtap="changMyName"> 点我呀！ </button>
+    <text class="user-motto">{{myTextName}} </text>
+     <!-- <text class="user-motto">{{motto}}</text>   {{userInfo.avatarUrl}}-->
+  </view>
+
+  <!-- 倒计时和搜索总view -->
+  <view class="timeSearchStyle">
+
+  </view>
+
+  <!-- list列表view -->
+  <view class="listShowStyle">
+
+  </view>
+</view>

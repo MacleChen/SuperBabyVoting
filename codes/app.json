@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#444",
+    "navigationBarTitleText": "超级宝宝",
+    "navigationBarTextStyle":"white"
+  }
+}
