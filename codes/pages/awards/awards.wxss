@@ -1,0 +1,5 @@
+/**index.wxss**/
+.itemContent{
+  color: black;
+  font-size: 35rpx;
+}
