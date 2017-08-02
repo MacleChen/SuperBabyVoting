@@ -5,7 +5,7 @@ Page( {
   data: {
     windowHeight: 654,
     maxtime: "",
-    isHiddenLoading: false,
+    isHiddenLoading: true,
     isHiddenToast: true,
     dataList: {}
   },
@@ -47,6 +47,9 @@ Page( {
       },
       fail: function() {
         console.log( "失败了" );
+        that.setData({
+            isHiddenLoading: true
+        });
       }
     });
   },

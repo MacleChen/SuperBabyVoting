@@ -3,3 +3,8 @@
   color: black;
   font-size: 35rpx;
 }
+
+.topImageView {
+  background-color: blueviolet;
+  width: 100%;
+}

@@ -1,4 +1,17 @@
 <view class="container">
+   <!-- 顶部图片展示 -->
+   <view class="topImageView"> 
+   <!-- width:100%;height:100rpx;  -->
+    <image src="http://oh6xiseuf.bkt.clouddn.com/topViewImage001.png" style="width:100%; background-size:cover;"/>  
+  </view>
+
+  <!-- 投票数据显示view -->
+  <view style="background-color:yellow; height:150rpx;"></view>
+
+  <!-- 搜索view -->
+  <view style="background-color:red; height:150rpx;"></view>
+
+  <!-- listView -->
   <scroll-view scroll-x="false" style="height: {{ windowHeight+'px'}}" scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower">
     <block wx:for="{{dataList}}">
     <!--整个item开始-->
@@ -34,6 +47,9 @@
          <!--整个item结束-->
      </block>
   </scroll-view>
+
+  <!-- 活动规则展示view -->
+  <view style="background-color:gray; height:150rpx;"></view>
 </view>
 <loading hidden="{{isHiddenLoading}}">加载中...</loading>
 <toast duration="1500" bindchange="closeToast" hidden="{{isHiddenToast}}">加载完成</toast>
