@@ -7,7 +7,7 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#09bb07",
+        "navigationBarBackgroundColor": "#333",
         "navigationBarTitleText": "超级宝宝人气评选",
         "navigationBarTextStyle": "white"
     },

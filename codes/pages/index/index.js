@@ -5,7 +5,7 @@ Page( {
   data: {
     windowHeight: 654,
     maxtime: "",
-    isHiddenLoading: true,
+    isHiddenLoading: false,
     isHiddenToast: true,
     dataList: {}
   },

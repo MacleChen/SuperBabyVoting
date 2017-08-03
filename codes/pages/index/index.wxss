@@ -5,6 +5,107 @@
 }
 
 .topImageView {
-  background-color: blueviolet;
-  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.voteCountsView {
+  background-color:#f9f9f9; 
+  height:130rpx;
+}
+
+.voteViewItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.voteViewSubItem {
+  width:33%;
+  Height:128rpx; 
+  display:flex; 
+  flex-direction:row;
+}
+
+.voteViewsubLeftItem {
+  width:98%; 
+  text-align:center;
+}
+
+.voteCountImg {
+  width: 32rpx;
+  height: 32rpx;
+  align-items: center;
+  margin-right: 10rpx;
+  padding-top: 5rpx;
+}
+
+.voteText {
+  font-size:28rpx; 
+  color:#707070;
+  padding-top: -10rpx;
+}
+
+.countDownAllView {
+  width:100%; 
+  text-align:center; 
+  height:93rpx; 
+  line-height:93rpx;
+}
+
+.countDownTimeTitle {
+  font-size:24rpx; 
+  color:#999999;
+}
+
+.countDownTimeView {
+  display:flex; 
+  flex-direction:row;
+  justify-content: center;
+}
+
+.countDownTimeText {
+  margin-left: 30rpx;
+  font-weight: bold;
+  width: 80rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  border: 2rpx solid #d9d9d9;
+  box-shadow: 1rpx 2rpx 1rpx #d9d9d9;
+}
+
+.searchView {
+  width:100%; 
+  height: 80rpx;
+  margin-left:20rpx; 
+  margin-right:20rpx; 
+  border-radius: 8rpx;
+  border: 2rpx solid #d9d9d9;
+  line-height: 80rpx;
+}
+
+.venues_item {
+    display: inline-block;
+    width: 47%;
+    margin: 16rpx 0 0 2%;
+}
+
+.cellHeaderView {
+  background-color:rgba(0,0,0,0.4);  
+  height:50rpx;
+  width: auto;
+  line-height: 35rpx;
+  z-index: 10;
+  position: absolute;
+  border-radius: 0 0 10rpx 10rpx;
+}
+
+.cellHeaderTitle {
+  font-size: 22rpx;
+  color: white;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  font-weight: 100;
 }
