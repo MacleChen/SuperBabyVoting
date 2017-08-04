@@ -1,39 +1,27 @@
 <!--index.wxml-->
 <view class="container">
   <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}" bindscrolltolower="lower" bindscrolltoupper="upper">
-    <block wx:for="{{dataList}}">
-    <!--整个item开始-->
-        <view style="height:6rpx;background-color:#CCC;"></view>
-        <view class="item">
-        <!--item头部开始-->
-          <view class="itemHeader">
-            <image class="userAvator" src="{{item.profile_image}}"  />
-            <view class="headerRight"  >
-              <text class="headerName">{{item.name}}</text>
-              <text class="headerTime">{{item.passtime}}</text>
-            </view>
-          </view>
-        <!--item头部结束-->
-          <text class="itemContent">{{item.text}}</text>
-        <!--item底部开始-->
-          <view class="itemFooter">
-              <view>
-                <image class="footerImg" src="/images/zan.png" />{{item.love}}
-              </view>
-              <view>
-                <image class="footerImg" src="/images/unzan.png" />{{item.hate}}
-              </view>
-              <view>
-                  <image class="footerImg" src="/images/share.png" />{{item.favourite}}
-              </view>
-              <view>
-                <image class="footerImg" src="/images/comment.png" />{{item.comment}}
-              </view>
-          </view>
-            <!--item底部结束-->
+    <!-- 文字描述 -->
+    <view class="awardContent">
+      <text style="font-size:28rpx; background:#ffff00;">1、每个微信号每天能投三票。
+            2、活动结束之后，将公布活动投票名次，按名次获奖。
+            3、投票者需要提供自己的真实照片，若盗用或者冒用他人名义照片参赛的行为，本平台将立即予以删除处理。
+            4、一旦参赛，本活动将认定参赛者提供了自己的照片的护法使用权，不再另行协议。
+            5、对蓄意诽谤、破坏、干扰活动的恶意言论及行为，本公司将诉讼法律手段维护本次活动的合法权益。
+            6、投票链接出现错误请联系相关人员重新获取链接。
+            7、本次投票系统主要监控投票IP及投票异常情况，一旦发现无效投票超过40%者，系统将会自动做出减票及锁定投票，甚至取消参赛资格。
+            8、禁止通过派单、微信群、红包群、QQ、淘宝买票互投等行为，检测出刷票行为第一次警告减500票，或清除所有刷票数据，分享的热点，第二次直接取消参赛资格，每分钟投票超过40票，系统将自动判定为疑似刷票行为，锁定投票资格20分钟。
+            9、本次活动秉承公平公开自愿参加的原则，参加人员不得使用任何刷票软件，刷票群进行刷票活动，一经核实，立即取消本次活动资格。</text>
+    </view>
+
+    <!-- 图片展示 -->
+    <view class="awardContent">
+      <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+        <view style="margin-top:20rpx; text-align:center">
+          <image src="http://oh6xiseuf.bkt.clouddn.com/award_no1.jpeg" style="width:100%;" mode="aspectFit"></image>
         </view>
-         <!--整个item结束-->
-     </block>
+      </block>
+    </view>
   </scroll-view>
 </view>
 <loading hidden="{{isHiddenLoading}}">加载中...</loading>

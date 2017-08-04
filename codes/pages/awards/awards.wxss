@@ -3,3 +3,7 @@
   color: black;
   font-size: 35rpx;
 }
+
+.awardContent {
+  margin: 0 40rpx 0;
+}

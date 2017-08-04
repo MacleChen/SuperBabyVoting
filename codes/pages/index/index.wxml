@@ -81,7 +81,7 @@
     <view class="countDownTimeView countDownAllView">
         <view class="searchView voteViewItem">
           <!-- 搜索框 -->
-          <view style="width:70%; height:60rpx;">
+          <view style="width:70%; height:50%;">
             <input type="text" placeholder="请输入编号或姓名" placeholder-style="font-size:30rpx; color:#bebebe" confirm-type="search" cursor-spacing="20rpx" />
           </view>
           <!-- 分割线 -->
@@ -93,7 +93,7 @@
   </view>
 
     <!-- listView -->
-    <block wx:for="{{dataList}}">
+    <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
     <!--整个item开始-->
         <view class="venues_item">
         <!-- 用户图片 -->
@@ -101,16 +101,39 @@
               <text class="cellHeaderTitle">58号，344票</text>
               <!-- <image class="userAvator" src="{{item.profile_image}}"  /> -->
             </view>
-            <image src="{{item.profile_image}}" style="width:100%;"></image>
-            <view style="width:100%; height:60rpx; background:red; margin-top:-10rpx;">
-          </view>
+            <image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" style="width:100%;" mode="aspectFill"></image>
+            <!-- 投票 -->
+            <view class="cellVoteImage">
+              <image src="/images/home_vote.png" style="width:80rpx; height:80rpx;"></image>
+            </view>
+
+            <view class="cellBottomView">
+              <text class="voteText" style="padding-left:10rpx;">张小逗</text>
+            </view>
           
         </view>
          <!--整个item结束-->
-        
      </block>
-     <!-- 活动规则展示view -->
-  <view style="background-color:gray; height:150rpx;"></view>
+
+     <!-- 加载更多 -->
+    <view class="countDownAllView">
+      <text class="countDownTimeTitle">查看更多</text>
+    </view>
+
+  <!-- 活动规则展示TitleHeader -->
+  <view><image src="/images/home_dotted_line.png" style="width:100%; height:1rpx;"></image></view>
+  <view style=" height:86rpx; background-color:#f9f9f9; margin-top:-10rpx; line-height:86rpx;">
+      <image class="voteCountImg" src="/images/home_active_role.png" style="margin-left:20rpx;"/>
+      <text class="voteText" style="color:#2c2c2c;">活动规则</text>
+  </view>
+
+  <!-- Show Detail Image View -->
+  <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+      <view style="margin-top:20rpx; text-align:center">
+          <image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" style="width:95%;" mode="aspectFill"></image>
+      </view>
+    </block>
+  
   </scroll-view>
 
 </view>

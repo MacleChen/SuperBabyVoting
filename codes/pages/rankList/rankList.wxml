@@ -1,39 +1,49 @@
 <!--index.wxml-->
 <view class="container">
   <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}" bindscrolltolower="lower" bindscrolltoupper="upper">
-    <block wx:for="{{dataList}}">
+    <!-- 倒计时、搜索view -->
+    <view style="background-color:white; height:280rpx;">
+      <!--title  -->
+      <view class="countDownAllView">
+        <text class="countDownTimeTitle">活动结束倒计时</text>
+      </view>
+        
+      <!--倒计时  -->
+      <view class="countDownTimeView countDownAllView" >
+        <view class="voteText countDownTimeText">0天</view>
+        <view class="voteText countDownTimeText">0时</view>
+        <view class="voteText countDownTimeText">00分</view>
+        <view class="voteText countDownTimeText">00秒</view>
+      </view>
+
+      <!-- 排行榜标题  -->
+      <view class="countDownTimeView countDownAllView">
+          <view class="searchView rankTitleView">
+            <!-- 搜索框 -->
+            <text class="voteText" style="padding-left:60rpx; color:#7828d3">排名人气打榜擂台</text>
+          </view>
+      </view>
+    </view>
+    <!-- listView -->
+    <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
     <!--整个item开始-->
-        <view style="height:6rpx;background-color:#CCC;"></view>
-        <view class="item">
-        <!--item头部开始-->
-          <view class="itemHeader">
-            <image class="userAvator" src="{{item.profile_image}}"  />
-            <view class="headerRight"  >
-              <text class="headerName">{{item.name}}</text>
-              <text class="headerTime">{{item.passtime}}</text>
-            </view>
+        <view class="cellContentView">
+          <!-- 图片 -->
+          <view style="background:red; width:25%;height:100%">
           </view>
-        <!--item头部结束-->
-          <text class="itemContent">{{item.text}}</text>
-        <!--item底部开始-->
-          <view class="itemFooter">
-              <view>
-                <image class="footerImg" src="/images/zan.png" />{{item.love}}
-              </view>
-              <view>
-                <image class="footerImg" src="/images/unzan.png" />{{item.hate}}
-              </view>
-              <view>
-                  <image class="footerImg" src="/images/share.png" />{{item.favourite}}
-              </view>
-              <view>
-                <image class="footerImg" src="/images/comment.png" />{{item.comment}}
-              </view>
+
+          <!-- 文字描述 -->
+          <view style="background:black; width:50%;height:100%">
+          
           </view>
-            <!--item底部结束-->
+          <!-- 排名 -->
+          <view style="background:purple; width:25%;height:100%">
+
+          </view>
         </view>
-         <!--整个item结束-->
+    <!--整个item结束-->
      </block>
+
   </scroll-view>
 </view>
 <loading hidden="{{isHiddenLoading}}">加载中...</loading>
