@@ -29,16 +29,19 @@
     <!--整个item开始-->
         <view class="cellContentView">
           <!-- 图片 -->
-          <view style="background:red; width:25%;height:100%">
+          <view style="width:25%;height:100%; text-align:center;">
+             <view style="margin-top:20rpx;"><image src="/images/rank_crown.png" style="width:60rpx; height:60rpx" mode="aspectFit"></image></view>
+            <view style="margin-top:-20rpx;"><image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" class="imageUserShowCircle" mode="aspectFill"></image></view> 
           </view>
 
           <!-- 文字描述 -->
-          <view style="background:black; width:50%;height:100%">
-          
+          <view style="width:50%;height:100%;">
+            <view style="margin-top:50rpx;"><text class="cellTitle">张译方 52号</text></view>
+            <view style="margin-top:10rpx;"><text class="cellDetail">票数 4564</text></view>
           </view>
           <!-- 排名 -->
-          <view style="background:purple; width:25%;height:100%">
-
+          <view style="width:25%;height:100%;line-height:210rpx;">
+            <text>{{index+1}}</text>
           </view>
         </view>
     <!--整个item结束-->

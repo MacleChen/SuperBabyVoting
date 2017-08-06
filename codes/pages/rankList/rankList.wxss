@@ -11,7 +11,6 @@
 }
 
 .cellContentView {
-  background: yellow;
   width: 96%;
   margin-left: 2%;
   height: 210rpx;
@@ -20,4 +19,21 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.imageUserShowCircle {
+  width:100rpx; 
+  height:100rpx;
+  border-radius: 50rpx;
+}
+
+.cellTitle {
+  color: #222222;
+  font-size:32rpx; 
+  font-weight: bolder;
+}
+
+.cellDetail {
+  color: #666666;
+  font-size:24rpx; 
 }

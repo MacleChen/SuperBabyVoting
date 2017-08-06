@@ -1,8 +1,8 @@
 {
     "pages": [
+      "pages/rankList/rankList",
         "pages/index/index",
         "pages/awards/awards",
-        "pages/rankList/rankList",
         "pages/babyDetail/babyDetail"
     ],
     "window": {
