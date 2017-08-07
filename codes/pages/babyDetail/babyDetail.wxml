@@ -2,9 +2,15 @@
 <view class="container">
   <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}" bindscrolltolower="lower" bindscrolltoupper="upper">
     <!-- 用户姓名和头像 -->
-    <view class="classname">
-      <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView"></image>
-      <text style="font-size:32rpx; font-weight:bolder;">刘淑艳</text>
+    <view class="userHeaderView">
+      <view class="userHeaderItem" style="text-align:right; margin-top:5rpx;">
+         <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView"></image>
+      </view>
+      <view class="userHeaderItem">
+        <text style="font-size:32rpx; font-weight:bolder; padding-left:10rpx;">刘淑艳</text>
+      </view>
+      <!-- <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView"></image>
+      <text style="font-size:32rpx; font-weight:bolder; padding-left:10rpx;">刘淑艳</text> -->
     </view>
 
     <!-- 用户属性 -->

@@ -5,15 +5,26 @@
 }
 
 .userHeaderView {
-  text-align: center;
+ display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   width: 100%;
   height: 80rpx;
+  
+}
+
+.userHeaderItem {
+  width:50%; 
+  height:80rpx;
+  line-height: 80rpx;
 }
 
 .userHeaderImageView {
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  margin-top: 10rpx;
 }
 
 .bottomView {
