@@ -27,11 +27,13 @@
     <!-- listView -->
     <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
     <!--整个item开始-->
-        <view class="cellContentView">
+        <view data-id="{{index}}" class="cellContentView" bindtap="bindCellViewTap">
           <!-- 图片 -->
           <view style="width:25%;height:100%; text-align:center;">
-             <view style="margin-top:20rpx;"><image src="/images/rank_crown.png" style="width:60rpx; height:60rpx" mode="aspectFit"></image></view>
-            <view style="margin-top:-20rpx;"><image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" class="imageUserShowCircle" mode="aspectFill"></image></view> 
+
+            <view wx:if="{{index < 3}}" style="margin-top:20rpx;"><image src="/images/rank_crown.png" style="width:60rpx; height:60rpx" mode="aspectFit"></image></view>
+            <view wx:else style="margin-top:20rpx;"><image src="/images/rank_crown_normal.png" style="width:60rpx; height:60rpx" mode="aspectFit"></image></view>
+            <view style="margin-top:-30rpx;"><image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="imageUserShowCircle" mode="aspectFill"></image></view> 
           </view>
 
           <!-- 文字描述 -->
@@ -41,7 +43,8 @@
           </view>
           <!-- 排名 -->
           <view style="width:25%;height:100%;line-height:210rpx;">
-            <text>{{index+1}}</text>
+            <text wx:if="{{index > 2}}" style="color:#222222">{{index+1}}</text>
+            <text wx:else style="color:red">{{index+1}}</text>
           </view>
         </view>
     <!--整个item结束-->

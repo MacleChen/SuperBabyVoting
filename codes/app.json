@@ -1,9 +1,9 @@
 {
     "pages": [
+      "pages/babyDetail/babyDetail",
       "pages/rankList/rankList",
         "pages/index/index",
-        "pages/awards/awards",
-        "pages/babyDetail/babyDetail"
+        "pages/awards/awards"
     ],
     "window": {
         "backgroundTextStyle": "light",
