@@ -3,7 +3,7 @@
   <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}" bindscrolltolower="lower" bindscrolltoupper="upper">
     <!-- 用户姓名和头像 -->
     <view class="classname">
-      <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderView"></image>
+      <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView"></image>
       <text style="font-size:32rpx; font-weight:bolder;">刘淑艳</text>
     </view>
 
