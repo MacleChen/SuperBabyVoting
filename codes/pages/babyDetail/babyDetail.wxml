@@ -9,31 +9,122 @@
       <view class="userHeaderItem">
         <text style="font-size:32rpx; font-weight:bolder; padding-left:10rpx;">刘淑艳</text>
       </view>
-      <!-- <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView"></image>
-      <text style="font-size:32rpx; font-weight:bolder; padding-left:10rpx;">刘淑艳</text> -->
     </view>
 
+    <!-- 分割线 -->
+    <view style="margin-top:-40rpx;"><image src="/images/home_dotted_line.png" style="width:100%; height:1rpx;"></image></view>
     <!-- 用户属性 -->
-    <view class="classname"></view>
+    <view class="userPropertyView">
+      <!-- 编号 -->
+      <view class="userPropertyItem">
+        <view class="userPropertyItemSubView">
+          <image class="voteCountImg" src="/images/detail_usericon.png" />
+          <text class="voteText">编号</text>
+        </view>
+        <view class="userPropertyItemSubView">
+          <text class="voteText">123456</text>
+        </view>
+      </view>
+      <!-- 票数 -->
+      <view class="userPropertyItem">
+        <view class="userPropertyItemSubView">
+          <image class="voteCountImg" src="/images/support.png" />
+          <text class="voteText">票数</text>
+        </view>
+        <view class="userPropertyItemSubView">
+          <text class="voteText">123456</text>
+        </view>
+      </view>
+      <!-- 热度 -->
+      <view class="userPropertyItem">
+        <view class="userPropertyItemSubView">
+          <image class="voteCountImg" src="/images/detail_hote.png" />
+          <text class="voteText">热度</text>
+        </view>
+        <view class="userPropertyItemSubView">
+          <text class="voteText">123456</text>
+        </view>
+      </view>
+    </view>
 
     <!-- 用户宣言 -->
-    <swiper></swiper>
+    <view style="margin-left:10rpx;">
+      <image class="voteCountImg" src="/images/detail_voice.png" />
+      <text class="voteText">宣言：</text>
+    </view>
 
-    <!-- 用户图片展示 -->
-    <view class="classname"></view>
+    <view class="userImagesShowView">
+      <swiper class="index-swiper" indicator-dots="true" interval="1000" current="{{currentSwiperIndex}}" bindchange="swiperBindChange">
+        <block wx:key="id" wx:for="{{[1,2,3]}}" >
+          <swiper-item data-id="{{item.id}}" bindtap="toDetailPage">
+            <image mode="aspectFill" src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" style="width:100%;height:100%; border-radius:15rpx;" />
+          </swiper-item>
+        </block>
+      </swiper> 
+      <!-- 翻页 -->
+      <view class="detailPrevAndNextImageBtn">
+        <view class="detailImageBtn" bindtap="swiperPrevPageClick" data-id="{{3}}">
+           <image src="/images/detail_prev_page.png" style="width:32rpx; height:32rpx;" mode="aspectFit"></image> 
+        </view>
+        <view class="detailImageBtn" bindtap="swiperNextPageClick" data-id="{{3}}">
+           <image src="/images/detail_next_page.png" style="width:32rpx; height:32rpx;" mode="aspectFit"></image>
+        </view>
+      </view> 
+    </view>
 
     <!-- “我要参加按钮” -->
-    <view class="classname"></view>
+    <view class="iWantInBtnView">
+      <text>我也要参加</text>
+    </view>
 
     <!-- "礼物列表" -->
-    <view class="classname"></view>
+    <view><image src="/images/home_dotted_line.png" style="width:100%; height:1rpx;"></image></view>
+    <view class="listHeaderTitleView">
+      <image class="voteCountImg" src="/images/detail_list_icon.png" style="margin-left:20rpx;"/>
+      <text class="voteText" style="color:#2c2c2c;">礼物列表</text>
+    </view>
 
     <!-- list 展示 -->
-    <block></block>
+    <view class="listShowView">
+      <block wx:key="id" wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" >
+        <view class="listShowViewCell">
+          <!-- 图片 -->
+          <view style="width:20%; margin:20rpx auto auto 20rpx;">
+            <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" style="width:88rpx; height:88rpx; border-radius:10rpx;" mode="aspectFill"></image>
+          </view>
+
+          <!-- 描述 -->
+          <view style="width:95%;">
+            <!-- 描述 -->
+            <view class="voteText" style="margin-top:20rpx; color:#222222;">保罗骑士《李敏13384310245》，给TA送了熊二！</view>
+            <!-- 日期 -->
+            <view class="voteText" style="margin-top:10rpx; font-size:24rpx; color:#cccccc">2017-08-09 21:31:22</view>
+          </view>
+        </view>  
+      </block>
+      <view class="listShowView voteText listLookMoreview">查看更多</view>
+
+    </view>
+    <!-- 留白 -->
+      <view style="width:100%;height:55rpx;"></view>
   </scroll-view>
 
   <!-- bottom View -->
-  <cover-view class="bottomView"></cover-view>
+  <view class="bottomView">
+    <view class="bottomViewItem">
+      <image class="voteCountImg" src="/images/detial_return_home.png"/>
+      <text class="voteText" style="color:#929292;">回首页</text>
+    </view>
+
+    <view class="bottomViewItem">
+        <view class="bottomMiddleHeaderView"></view>
+    </view>
+
+    <view class="bottomViewItem">
+      <image class="voteCountImg" src="/images/detial_gift.png"/>
+      <text class="voteText" style="color:#929292;">礼物</text>
+    </view>
+  </view>
 </view>
 <loading hidden="{{isHiddenLoading}}">加载中...</loading>
 <toast duration="1500" bindchange="closeToast" hidden="{{isHiddenToast}}">加载完成</toast>

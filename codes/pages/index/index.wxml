@@ -95,7 +95,7 @@
     <!-- listView -->
     <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
     <!--整个item开始-->
-        <view class="venues_item">
+        <view class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}">
         <!-- 用户图片 -->
             <view class="cellHeaderView">
               <text class="cellHeaderTitle">58号，344票</text>
@@ -122,7 +122,7 @@
 
   <!-- 活动规则展示TitleHeader -->
   <view><image src="/images/home_dotted_line.png" style="width:100%; height:1rpx;"></image></view>
-  <view style=" height:86rpx; background-color:#f9f9f9; margin-top:-10rpx; line-height:86rpx;">
+  <view class="listHeaderTitleView">
       <image class="voteCountImg" src="/images/home_active_role.png" style="margin-left:20rpx;"/>
       <text class="voteText" style="color:#2c2c2c;">活动规则</text>
   </view>
