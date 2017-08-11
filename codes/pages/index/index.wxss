@@ -32,6 +32,13 @@
   text-align:center;
 }
 
+.searchButtonView {
+  width:210rpx; 
+  height:100%;
+  font-size:32rpx;
+  color:#999999;
+}
+
 .venues_item {
   display: inline-block;
   width: 47%;

@@ -1,5 +1,5 @@
 <view class="container">
-  <scroll-view scroll-x="false" style="height: {{ windowHeight+'px'}}" scroll-y="true" bindscrolltoupper="upper">
+  <scroll-view scroll-x="false" style="height: {{ windowHeight+'px'}}" scroll-y="true">
     <!-- 顶部图片展示 -->
    <view class="topImageView"> 
    <!-- width:100%;height:100rpx;  -->
@@ -71,10 +71,10 @@
       
     <!--倒计时  -->
     <view class="countDownTimeView countDownAllView" >
-      <view class="voteText countDownTimeText">0天</view>
-      <view class="voteText countDownTimeText">0时</view>
-      <view class="voteText countDownTimeText">00分</view>
-      <view class="voteText countDownTimeText">00秒</view>
+      <view class="voteText countDownTimeText">{{countDownDay}}天</view>
+      <view class="voteText countDownTimeText">{{countDownHour}}时</view>
+      <view class="voteText countDownTimeText">{{countDownMinute}}分</view>
+      <view class="voteText countDownTimeText">{{countDownSecond}}秒</view>
     </view>
 
     <!--搜索  -->
@@ -82,18 +82,18 @@
         <view class="searchView voteViewItem">
           <!-- 搜索框 -->
           <view style="width:70%; height:50%;">
-            <input type="text" placeholder="请输入编号或姓名" placeholder-style="font-size:30rpx; color:#bebebe" confirm-type="search" cursor-spacing="20rpx" />
+            <input  type="text" placeholder="请输入编号或姓名" placeholder-style="font-size:30rpx; color:#bebebe" confirm-type="search" cursor-spacing="20rpx" bindinput="inputTextChange"/>
           </view>
           <!-- 分割线 -->
           <view style="width:2rpx; height:80%; background-color:#d9d9d9;"></view>
           <!-- 搜索按钮 -->
-          <view style="width:210rpx; height:100%;font-size:32rpx;color:#999999">搜 索</view>
+          <view class="searchButtonView" bindtap="searchButtonClick">搜 索</view>
         </view>
     </view>
   </view>
 
     <!-- listView -->
-    <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+    <block wx:key="id" wx:for="{{[1,2,3,4,5,6,7,8,9]}}">
     <!--整个item开始-->
         <view class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}">
         <!-- 用户图片 -->
@@ -128,11 +128,11 @@
   </view>
 
   <!-- Show Detail Image View -->
-  <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
-      <view style="margin-top:20rpx; text-align:center">
-          <image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" style="width:95%;" mode="aspectFill"></image>
-      </view>
-    </block>
+  <block wx:key="id" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+    <view style="margin-top:20rpx; text-align:center">
+        <image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" style="width:95%;" mode="aspectFill"></image>
+    </view>
+  </block>
   
   </scroll-view>
 

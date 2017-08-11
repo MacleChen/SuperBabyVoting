@@ -117,7 +117,17 @@
     </view>
 
     <view class="bottomViewItem">
-        <view class="bottomMiddleHeaderView"></view>
+        <view class="bottomMiddleHeaderView" bindtap="voteClick" data-id="value">
+          <view class="bottomMiddleHeaderItem" animation="{{animationMiddleHeaderItem}}">
+            <!-- 心跳 -->
+            <view class="bottomMiddleHeaderItemSubView">
+               <image src="/images/detail_vote_heart.png" style="width:32rpx; height:32rpx;" animation="{{animationMiddleHeaderItem}}"></image> 
+            </view>
+            
+            <!-- 投票文字 -->
+            <view  class="bottomMiddleHeaderItemSubView">投票</view>
+          </view>
+        </view>
     </view>
 
     <view class="bottomViewItem">

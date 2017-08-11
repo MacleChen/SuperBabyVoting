@@ -71,7 +71,7 @@
   background: #ff4238;
   line-height: 80rpx;
   border-radius: 15rpx;
-  font-weight: lighter;
+  font-weight: normal;
   color: white;
   font-size: 32rpx;
 }
@@ -127,4 +127,26 @@
   border-radius: 70rpx;
   border: 10rpx solid #8607bb;
   box-sizing: border-box;   /**border-box：内边框    content-box：外边框**/
+}
+
+.bottomView .bottomMiddleHeaderView .bottomMiddleHeaderItem {
+  width: 100rpx;
+  height: 100rpx;
+  background: #f4d9ff;
+  border-radius: 50rpx;
+  margin: 10rpx auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottomMiddleHeaderItemSubView {
+  width:100%; 
+  height: 30rpx;
+  text-align:center;
+  font-size: 28rpx;
+  color: #b830f1;
+  line-height: 30rpx;
+
 }

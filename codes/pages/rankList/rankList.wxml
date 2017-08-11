@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}" bindscrolltolower="lower" bindscrolltoupper="upper">
+  <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}">
     <!-- 倒计时、搜索view -->
     <view style="background-color:white; height:280rpx;">
       <!--title  -->
@@ -9,12 +9,12 @@
       </view>
         
       <!--倒计时  -->
-      <view class="countDownTimeView countDownAllView" >
-        <view class="voteText countDownTimeText">0天</view>
-        <view class="voteText countDownTimeText">0时</view>
-        <view class="voteText countDownTimeText">00分</view>
-        <view class="voteText countDownTimeText">00秒</view>
-      </view>
+    <view class="countDownTimeView countDownAllView" >
+      <view class="voteText countDownTimeText">{{countDownDay}}天</view>
+      <view class="voteText countDownTimeText">{{countDownHour}}时</view>
+      <view class="voteText countDownTimeText">{{countDownMinute}}分</view>
+      <view class="voteText countDownTimeText">{{countDownSecond}}秒</view>
+    </view>
 
       <!-- 排行榜标题  -->
       <view class="countDownTimeView countDownAllView">
@@ -25,7 +25,7 @@
       </view>
     </view>
     <!-- listView -->
-    <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
+    <block wx:key="id" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
     <!--整个item开始-->
         <view data-id="{{index}}" class="cellContentView" bindtap="bindCellViewTap">
           <!-- 图片 -->
@@ -49,7 +49,6 @@
         </view>
     <!--整个item结束-->
      </block>
-
   </scroll-view>
 </view>
 <loading hidden="{{isHiddenLoading}}">加载中...</loading>
