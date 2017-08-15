@@ -12,7 +12,7 @@ Page( {
     countDownHour: 0,
     countDownMinute: 0,
     countDownSecond: 0,
-    inputText: "",
+    searchInputText: '',
   },
   //事件处理函数
   bindViewTap: function() {
@@ -23,7 +23,6 @@ Page( {
   onLoad: function() {
     this.setData( {
       windowHeight: wx.getStorageSync( 'windowHeight' ),
-      inputText: "",
     });
   },
 
@@ -80,15 +79,21 @@ Page( {
   // 搜索框的数值改变时调用
   inputTextChange: function(e) {
   this.setData({
-    inputText: e.detail.value,
+    searchInputText: e.detail.value
   });
   },
 
   // 搜索按钮的点击响应
   searchButtonClick: function(e) {
-    wx.showToast({
-      title: "搜索词" + this.inputText,
-    })
+    var searchText = this.data.searchInputText;
+    if (searchText.length <= 0) {
+      wx.showToast({
+        title: "请输入搜索词",
+      });
+    } else {
+        console.log(searchText);
+    }
+    
   },
 
   //cell事件处理函数
@@ -97,5 +102,16 @@ Page( {
     wx.navigateTo({
       url: '../babyDetail/babyDetail?id=' + id
     });
+  },
+
+  // 投票按钮点击事件
+  voteClick: function(e) {
+    var babyID = e.currentTarget.dataset.id; 
+    console.log("投票=" + babyID);
+  },
+
+  // 获取更多的宝宝列表
+  getMoreBabyListData: function(e) {
+    
   }
 })

@@ -10,7 +10,8 @@ Page({
         isHiddenLoading: true,
         isHiddenToast: true,
         animationMiddleHeaderItem: '',
-        dataList: {}
+        dataList: {},
+        dataUserImagesList: ["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502600177235&di=c41b5668d323d6e9f01c831dade59443&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F02%2F70%2F19300001203917131453704070758.jpg", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502600209447&di=b7743b31dba38d5a289abf308e1f6a72&imgtype=0&src=http%3A%2F%2Fclubfiles.liba.com%2F2007%2F07%2F26%2F17%2F8918980.jpg", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502600209446&di=9c52e7a1f89f035412dc7f9638f9ac6e&imgtype=0&src=http%3A%2F%2Fwww.51kids.com%2FDS_ModelVote%2FImage%2F201006%2F1410552614.jpg"],
     },
     //获取列表残过来的参数 id   (页面初始化方法)
     onLoad: function (options) {
@@ -107,8 +108,42 @@ Page({
       }
     },
 
+    // 图片轮播点击
+    toDetailPage: function (e) {
+      wx.previewImage({
+        urls: e.currentTarget.dataset.array,
+        current: e.currentTarget.dataset.id,
+      })
+    },
+
+    // 我也要参加
+    iWantToPartIn: function(e) {
+      console.log("i want to partin");
+    },
+
+    //返回首页
+    returnHomeBack: function(e) {
+      console.log("返回首页");   // 关闭所有非tab 界面，直接舔砖tab界面
+      wx.switchTab({
+        url: '../index/index'
+      })
+    },
+
     // 投票按钮点击
     voteClick: function (e) {
-      
+      wx.showModal({
+        title: '提示',
+        content: '我要投票',
+      })
     },
+
+    // 送礼物
+    sendBabyGift: function(e) {
+      console.log("送礼物");
+      var id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: '../babyGift/babyGift?id=' + id
+      });
+    }
+
 })

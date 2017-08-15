@@ -87,7 +87,7 @@
           <!-- 分割线 -->
           <view style="width:2rpx; height:80%; background-color:#d9d9d9;"></view>
           <!-- 搜索按钮 -->
-          <view class="searchButtonView" bindtap="searchButtonClick">搜 索</view>
+          <view class="searchButtonView" bindtap="searchButtonClick" hover-class="buttonHightLightView">搜 索</view>
         </view>
     </view>
   </view>
@@ -103,7 +103,7 @@
             </view>
             <image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" style="width:100%;" mode="aspectFill"></image>
             <!-- 投票 -->
-            <view class="cellVoteImage">
+            <view class="cellVoteImage" bindtap="voteClick" data-id="{{index}}"> 
               <image src="/images/home_vote.png" style="width:80rpx; height:80rpx;"></image>
             </view>
 
@@ -116,7 +116,7 @@
      </block>
 
      <!-- 加载更多 -->
-    <view class="countDownAllView">
+    <view class="countDownAllView" bindtap="getMoreBabyListData">
       <text class="countDownTimeTitle">查看更多</text>
     </view>
 

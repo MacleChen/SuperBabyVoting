@@ -134,7 +134,7 @@ swiper.index-swiper {
 .detailPrevAndNextImageBtn {
   position: absolute;
   width: 95%;
-  height: 60rpx;
+  height: 1rpx;
   margin-top: -255rpx;
   display: flex;
   flex-direction: row;
@@ -165,4 +165,9 @@ swiper .desc {
   overflow: hidden;
   white-space:nowrap;
   text-overflow: ellipsis;
+}
+
+
+.buttonHightLightView {
+  background: #efefef;
 }

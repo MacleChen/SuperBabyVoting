@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}" bindscrolltolower="lower" bindscrolltoupper="upper">
+  <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}">
     <!-- 文字描述 -->
     <view class="awardContent">
       <text style="font-size:28rpx; background:#ffff00;">1、每个微信号每天能投三票。
