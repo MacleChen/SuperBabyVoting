@@ -1,0 +1,96 @@
+/**index.wxss**/
+.itemContent{
+  color: black;
+  font-size: 35rpx;
+}
+
+.awardContent {
+  margin: 0 40rpx 0;
+}
+
+
+.userHeaderView {
+  width: 100%;
+  height: 240rpx;
+  background: #f9f9f9;
+}
+
+.userHeaderImageView {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+}
+
+.userHeaderNameView {
+  width:100%; 
+  text-align:center;
+  font-size: 34rpx;
+}
+
+.userPropertyView {
+  height: 102rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #f9f9f9;
+  margin-top: -10rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.userPropertyItem {
+  width: 33%;
+  height: 102rpx;
+}
+
+.userPropertyItemSubView {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  line-height: 30rpx;
+}
+
+
+.venues_item {
+  display: inline-block;
+  width: 30%;
+  height: 240rpx;
+  margin: 16rpx 0 0 2%;
+  border: 2rpx solid #e8e8e8;
+  /* box-shadow: 1rpx 1rpx 1rpx #d9d9d9; */
+}
+
+.gitfImageView {
+  margin-top: 20rpx;
+}
+
+.giftTitleOneView {
+  margin-top: -10rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.giftTitleTwoView {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #666666;
+  text-align: center;
+}
+
+.giftTicketView {
+  font-size: 24rpx;
+  color: red;
+  text-align: center;
+}
+
+.weiXinPayBtnView {
+  background: #1aad19;
+  color: white;
+  height: 92rpx;
+  margin: 40rpx 25rpx 0 25rpx;
+  border: 1rpx solid #158a14;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 92rpx;
+}

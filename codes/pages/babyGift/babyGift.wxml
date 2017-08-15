@@ -1,0 +1,83 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}">
+    <!-- 用户姓名和头像 -->
+    <view class="userHeaderView">
+      <view style="text-align:center; padding-top:30rpx;">
+         <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView" mode="aspectFill"></image>
+      </view>
+      <view class="userHeaderNameView">
+        给<text style="color:#04be02;">刘淑艳</text>送礼
+      </view>
+    </view>
+
+    <!-- 分割线 -->
+    <view style="margin-top:-40rpx;"><image src="/images/home_dotted_line.png" style="width:100%; height:1rpx;"></image></view>
+    <!-- 用户属性 -->
+    <view class="userPropertyView">
+      <!-- 编号 -->
+      <view class="userPropertyItem">
+        <view class="userPropertyItemSubView">
+          <image class="voteCountImg" src="/images/detail_usericon.png" />
+          <text class="voteText">编号</text>
+        </view>
+        <view class="userPropertyItemSubView">
+          <text class="voteText">123456</text>
+        </view>
+      </view>
+      <!-- 票数 -->
+      <view class="userPropertyItem">
+        <view class="userPropertyItemSubView">
+          <image class="voteCountImg" src="/images/support.png" />
+          <text class="voteText">票数</text>
+        </view>
+        <view class="userPropertyItemSubView">
+          <text class="voteText">123456</text>
+        </view>
+      </view>
+      <!-- 热度 -->
+      <view class="userPropertyItem">
+        <view class="userPropertyItemSubView">
+          <image class="voteCountImg" src="/images/detail_hote.png" />
+          <text class="voteText">热度</text>
+        </view>
+        <view class="userPropertyItemSubView">
+          <text class="voteText">123456</text>
+        </view>
+      </view>
+    </view>
+
+  <!-- listView -->
+  <view style="margin:30rpx 25rpx 0 25rpx;">
+      <block wx:key="id" wx:for="{{[1,2,3,4,5,6]}}">
+      <!--整个item开始-->
+          <view class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}">
+          <!-- 礼物图片 -->
+              <view class="gitfImageView">
+                <image src="http://oh6xiseuf.bkt.clouddn.com/gift1.png" style="width:100%;height:70rpx;" mode="aspectFit"></image>
+                <!-- <image class="userAvator" src="{{item.profile_image}}"  /> -->
+              </view>
+              
+              <!-- 名称1 -->
+              <view class="giftTitleOneView">么么哒</view>
+              <!-- 名称2 -->
+              <view class="giftTitleTwoView">么么哒</view>
+
+              <!-- 票数 -->
+              <view class="giftTicketView">33票</view>
+            
+          </view>
+          <!--整个item结束-->
+      </block>
+     </view>
+
+    <!-- 提示信息 -->
+    <view class="giftTitleTwoView" style="margin-top:50rpx;color:black;">请选择以上礼品</view>
+
+    <!-- 微信支付按钮 -->
+    <view class="weiXinPayBtnView">微信支付</view> 
+  </scroll-view> 
+
+</view>
+<loading hidden="{{isHiddenLoading}}">加载中...</loading>
+<toast duration="1500" bindchange="closeToast" hidden="{{isHiddenToast}}">加载完成</toast>
