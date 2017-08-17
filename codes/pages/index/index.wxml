@@ -82,7 +82,7 @@
         <view class="searchView voteViewItem">
           <!-- 搜索框 -->
           <view style="width:70%; height:50%;">
-            <input  type="text" placeholder="请输入编号或姓名" placeholder-style="font-size:30rpx; color:#bebebe" confirm-type="search" cursor-spacing="20rpx" bindinput="inputTextChange"/>
+            <input  type="text" placeholder="请输入编号或姓名" value="{{userInfo.nickName}}" placeholder-style="font-size:30rpx; color:#bebebe" confirm-type="search" cursor-spacing="20rpx" bindinput="inputTextChange"/>
           </view>
           <!-- 分割线 -->
           <view style="width:2rpx; height:80%; background-color:#d9d9d9;"></view>

@@ -1,0 +1,77 @@
+<view class="container">
+  <scroll-view scroll-x="false" style="height: {{ windowHeight+'px'}}" scroll-y="true">
+    <!-- 顶部图片展示 -->
+    <view class="topImageView">
+      <!-- width:100%;height:100rpx;  -->
+      <image src="http://oh6xiseuf.bkt.clouddn.com/topViewImage001.png" style="width:100%; background-size:cover;" />
+    </view>
+
+    <!-- 投票数据显示view -->
+    <view class="voteCountsView">
+      <!-- 水平模块 -->
+      <view class="voteViewItem">
+        <!--已报名  -->
+        <view class="voteViewSubItem">
+          <view class="voteViewsubLeftItem">
+            <!-- title -->
+            <view>
+              <image class="voteCountImg" src="/images/signUpCount.png" />
+              <text class="voteText">已报名</text>
+            </view>
+            <!-- value -->
+            <view>
+              <text class="voteText">100</text>
+            </view>
+          </view>
+          <view style="background-color:#d9d9d9; height:80%; width:2rpx;"></view>
+        </view>
+
+        <!--累积投票  -->
+        <view class="voteViewSubItem">
+          <view class="voteViewsubLeftItem">
+            <!-- title -->
+            <view>
+              <image class="voteCountImg" src="/images/support.png" />
+              <text class="voteText">累计投票</text>
+            </view>
+            <!-- value -->
+            <view>
+              <text class="voteText">200</text>
+            </view>
+          </view>
+          <view style="background-color:#d9d9d9; height:80%; width:2rpx;"></view>
+        </view>
+
+        <!--访问量  -->
+        <view class="voteViewSubItem">
+          <view class="voteViewsubLeftItem">
+            <!-- title -->
+            <view>
+              <image class="voteCountImg" src="/images/lookCount.png" />
+              <text class="voteText">访问量</text>
+            </view>
+            <!-- value -->
+            <view>
+              <text class="voteText">300</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 底部分割线 -->
+      <view style="background-color:#efefef; height:1rpx; width:100%;"></view>
+    </view>
+
+    <!-- 报名处 -->
+
+    <!-- 联系方式 -->
+
+    <!-- 上传图片 -->
+
+    <!-- 确认报名按钮 -->
+
+
+  </scroll-view>
+
+</view>
+<loading hidden="{{isHiddenLoading}}">加载中...</loading>
+<toast duration="1500" bindchange="closeToast" hidden="{{isHiddenToast}}">加载完成</toast>

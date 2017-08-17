@@ -4,7 +4,8 @@
         "pages/awards/awards",
         "pages/rankList/rankList",
         "pages/babyDetail/babyDetail",
-        "pages/babyGift/babyGift"
+        "pages/babyGift/babyGift",
+        "pages/takePartin/takePartin"
     ],
     "window": {
         "backgroundTextStyle": "light",

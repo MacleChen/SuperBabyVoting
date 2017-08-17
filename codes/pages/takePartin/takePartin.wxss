@@ -1,0 +1,33 @@
+/*item的内容样式*/
+.itemContent{
+  color: black;
+  font-size: 35rpx;
+}
+
+.topImageView {
+  background-color: #f9f9f9;
+}
+
+.voteCountsView {
+  background-color:#f9f9f9; 
+  height:130rpx;
+}
+
+.voteViewItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.voteViewSubItem {
+  width:33%;
+  Height:128rpx; 
+  display:flex; 
+  flex-direction:row;
+}
+
+.voteViewsubLeftItem {
+  width:98%; 
+  text-align:center;
+}

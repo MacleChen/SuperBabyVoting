@@ -74,7 +74,7 @@
     </view>
 
     <!-- “我要参加按钮” -->
-    <view class="iWantInBtnView" bindtap="iWantToPartIn">
+    <view class="iWantInBtnView" bindtap="iWantToPartIn" data-id="1">
       <text>我也要参加</text>
     </view>
 

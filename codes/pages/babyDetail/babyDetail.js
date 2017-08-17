@@ -119,6 +119,10 @@ Page({
     // 我也要参加
     iWantToPartIn: function(e) {
       console.log("i want to partin");
+      var id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: '../takePartin/takePartin?id=' + id
+      });
     },
 
     //返回首页
