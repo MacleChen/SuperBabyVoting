@@ -51,7 +51,8 @@
   <view style="margin:30rpx 25rpx 0 25rpx;">
       <block wx:key="id" wx:for="{{[1,2,3,4,5,6]}}">
       <!--整个item开始-->
-          <view class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}">
+          <!-- if  -->
+          <view wx:if="{{index == selectedGiftIndex}}" class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}" style="border-color: red">
           <!-- 礼物图片 -->
               <view class="gitfImageView">
                 <image src="http://oh6xiseuf.bkt.clouddn.com/gift1.png" style="width:100%;height:70rpx;" mode="aspectFit"></image>
@@ -67,6 +68,25 @@
               <view class="giftTicketView">33票</view>
             
           </view>
+
+          <!-- else -->
+          <view wx:else class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}">
+          <!-- 礼物图片 -->
+              <view class="gitfImageView">
+                <image src="http://oh6xiseuf.bkt.clouddn.com/gift1.png" style="width:100%;height:70rpx;" mode="aspectFit"></image>
+                <!-- <image class="userAvator" src="{{item.profile_image}}"  /> -->
+              </view>
+              
+              <!-- 名称1 -->
+              <view class="giftTitleOneView">么么哒</view>
+              <!-- 名称2 -->
+              <view class="giftTitleTwoView">么么哒</view>
+
+              <!-- 票数 -->
+              <view class="giftTicketView">33票</view>
+            
+          </view>
+
           <!--整个item结束-->
       </block>
      </view>
@@ -75,7 +95,7 @@
     <view class="giftTitleTwoView" style="margin-top:50rpx;color:black;">请选择以上礼品</view>
 
     <!-- 微信支付按钮 -->
-    <view class="weiXinPayBtnView">微信支付</view> 
+    <view class="weiXinPayBtnView" hover-class="weiXinPayHightBtnView" bindtap="weiXinPayBtnClick">微信支付</view> 
   </scroll-view> 
 
 </view>

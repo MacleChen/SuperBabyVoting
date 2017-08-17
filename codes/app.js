@@ -1,6 +1,14 @@
+import superBaby from '/superBaby/index';
+
 //app.js
 App({
+  data: {
+    userInfo: null
+  },
+
     onLaunch: function () {
+      var that = this;
+
         //调用API从本地缓存中获取数据
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
@@ -10,27 +18,16 @@ App({
                 console.log("屏幕高度" + res.windowHeight);
                 wx.setStorageSync("windowHeight", res.windowHeight)
             }
-        })
-    },
-    getUserInfo: function (cb) {
-        var that = this
-        if (this.globalData.userInfo) {
-            typeof cb == "function" && cb(this.globalData.userInfo)
-        } else {
-            //调用登录接口
-            wx.login({
-                success: function () {
-                    wx.getUserInfo({
-                        success: function (res) {
-                            that.globalData.userInfo = res.userInfo
-                            typeof cb == "function" && cb(that.globalData.userInfo)
-                        }
-                    })
-                }
-            })
-        }
-    },
-    globalData: {
-        userInfo: null
+        });
+
+      // 登录自己的服务器
+        superBaby.login(() => {
+          superBaby.getUserInfo((userInfo) => {
+            console.log("已获取数据", userInfo);
+            that.data.userInfo = userInfo;
+          }, () => {
+            console.log("用户拒绝提供信息");
+          });
+        });
     },
 })

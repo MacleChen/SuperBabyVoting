@@ -94,3 +94,7 @@
   text-align: center;
   line-height: 92rpx;
 }
+
+.weiXinPayHightBtnView {
+  opacity: 0.6;
+}
