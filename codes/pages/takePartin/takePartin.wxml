@@ -62,13 +62,41 @@
     </view>
 
     <!-- 报名处 -->
+    <view class="takePartInTitle">报名处</view>
 
     <!-- 联系方式 -->
+      <!-- 姓名 -->
+    <view class="voteViewItem">
+      <view class="voteText userInfoTitleLeftView" style="margin-top:10rpx;">姓名：</view>
+      <view class="userInfoTitleRightView">
+        <input  type="text" placeholder="请填写姓名" placeholder-style="color:#bebebe" confirm-type="next" cursor-spacing="20rpx"/>
+      </view>
+    </view>
+     <!-- 手机 -->
+    <view class="voteViewItem">
+      <view class="voteText userInfoTitleLeftView" style="margin-top:10rpx;">手机：</view>
+      <view class="userInfoTitleRightView">
+        <input  type="text" placeholder="请填写手机"  placeholder-style="color:#bebebe" confirm-type="done" cursor-spacing="20rpx"/>
+      </view>
+    </view>
+      <!-- 上传图片 -->
+    <view class="voteViewItem" style="height:auto">
+      <view class="voteText userInfoTitleLeftView"><text>上传图片\n1~2张</text></view>
+      <view class="userInfoTitleRightView" style="height:auto"> 
+        <block wx:key="id" wx:for="{{selectedImageFilePaths}}" >
+          <view class="addImageBtnView" ><image src="{{item}}" style="width:100%;height:100%;" mode="aspectFill"></image>
+            <view class="deleteImageView"><image src="/images/image_delete.png" style="width:30rpx;height:30rpx;"></image></view>
+            <view wx:if="{{coverIndex == index}}" class="setCoverImageView"><image src="/images/image_selected.png" style="width:30rpx;height:30rpx;"></image></view>
+            <view wx:else class="setNotCoverImageView"><text style="font-size:24rpx;color:white;">设为\n封面</text></view>
+          </view>
+        </block>
+        <view wx:if="{{selectedImageFilePaths.length < 2}}" class="addImageBtnView" bindtap="addImageBtnCLick"><image src="/images/addimage_icon.png" style="width:100%;height:100%;"></image></view>
+      </view>
+    </view>
 
-    <!-- 上传图片 -->
 
     <!-- 确认报名按钮 -->
-
+    <view class="sureToTakePartinBtn">确认报名</view>
 
   </scroll-view>
 

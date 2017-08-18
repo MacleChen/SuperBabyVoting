@@ -31,3 +31,68 @@
   width:98%; 
   text-align:center;
 }
+
+/** 报名处 **/
+.takePartInTitle {
+  text-align: center;
+  width: 100%;
+  height: 150rpx;
+  line-height: 150rpx;
+  font-size: 36rpx;
+  color: #333333;
+}
+
+.userInfoTitleLeftView {
+  width: 25%;
+  height: 100rpx;
+  text-align: center;
+}
+
+.userInfoTitleRightView {
+  width: 75%;
+  height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.userInfoTitleRightView input {
+  width: 400rpx;
+  height: 60rpx;
+  border: 1rpx solid #d9d9d9;
+  border-radius: 15rpx;
+}
+
+.addImageBtnView {
+  margin-top: 20rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border: 2rpx solid #666666;
+  border-radius: 10rpx;
+  font-size: 80rpx;
+}
+
+.sureToTakePartinBtn {
+  width: 95%;
+  height: 80rpx;
+  text-align: center;
+  margin: 40rpx auto 0 auto;
+  overflow: hidden;
+  background: #ff4238;
+  line-height: 80rpx;
+  border-radius: 15rpx;
+  font-weight: normal;
+  color: white;
+  font-size: 32rpx;
+}
+
+.deleteImageView {
+  position: absolute;
+}
+
+.setCoverImageView {
+  position: absolute;
+}
+
+.setNotCoverImageView {
+  position: absolute;
+}
