@@ -1,3 +1,8 @@
+<import src="../../components/toast.wxml"/>
+
+<!-- is="toast" 匹配组件中的toast提示  如果用dialog的话这就是dialog -->
+<template is="toast" data="{{ ...$wux.toast }}"/>
+
 <view class="container">
   <scroll-view scroll-x="false" style="height: {{ windowHeight+'px'}}" scroll-y="true">
     <!-- 顶部图片展示 -->
@@ -69,14 +74,14 @@
     <view class="voteViewItem">
       <view class="voteText userInfoTitleLeftView" style="margin-top:10rpx;">姓名：</view>
       <view class="userInfoTitleRightView">
-        <input  type="text" placeholder="请填写姓名" placeholder-style="color:#bebebe" confirm-type="next" cursor-spacing="20rpx"/>
+        <input  type="text" placeholder="请填写姓名" bindinput="inputUserNameChange" placeholder-style="color:#bebebe" confirm-type="next" cursor-spacing="20rpx"/>
       </view>
     </view>
      <!-- 手机 -->
     <view class="voteViewItem">
       <view class="voteText userInfoTitleLeftView" style="margin-top:10rpx;">手机：</view>
       <view class="userInfoTitleRightView">
-        <input  type="text" placeholder="请填写手机"  placeholder-style="color:#bebebe" confirm-type="done" cursor-spacing="20rpx"/>
+        <input  type="text" placeholder="请填写手机" bindinput="inputPhoneNumChange"  placeholder-style="color:#bebebe" confirm-type="done" cursor-spacing="20rpx"/>
       </view>
     </view>
       <!-- 上传图片 -->
@@ -84,10 +89,10 @@
       <view class="voteText userInfoTitleLeftView"><text>上传图片\n1~2张</text></view>
       <view class="userInfoTitleRightView" style="height:auto"> 
         <block wx:key="id" wx:for="{{selectedImageFilePaths}}" >
-          <view class="addImageBtnView" ><image src="{{item}}" style="width:100%;height:100%;" mode="aspectFill"></image>
-            <view class="deleteImageView"><image src="/images/image_delete.png" style="width:30rpx;height:30rpx;"></image></view>
-            <view wx:if="{{coverIndex == index}}" class="setCoverImageView"><image src="/images/image_selected.png" style="width:30rpx;height:30rpx;"></image></view>
-            <view wx:else class="setNotCoverImageView"><text style="font-size:24rpx;color:white;">设为\n封面</text></view>
+          <view class="addImageBtnView" ><image src="{{item}}" style="width:100%;height:100%;border-radius: 10rpx;" mode="aspectFill"></image>
+            <view class="deleteImageView" bindtap="deleteImageClick" data-id="{{index}}"><image src="/images/image_delete.png" style="width:70rpx;height:70rpx;"></image></view>
+            <view wx:if="{{coverIndex == index}}" class="deleteImageView" style="margin-top:-90rpx" bindtap="selectedCoverClick"><image src="/images/image_selected.png" style="width:70rpx;height:70rpx;"></image></view>
+            <view wx:else class="deleteImageView" style="margin-top:-90rpx; font-size:24rpx;color:white; line-height:30rpx;" bindtap="setCoverCLick" data-id="{{index}}">设为封面</view>
           </view>
         </block>
         <view wx:if="{{selectedImageFilePaths.length < 2}}" class="addImageBtnView" bindtap="addImageBtnCLick"><image src="/images/addimage_icon.png" style="width:100%;height:100%;"></image></view>
@@ -96,7 +101,7 @@
 
 
     <!-- 确认报名按钮 -->
-    <view class="sureToTakePartinBtn">确认报名</view>
+    <view class="sureToTakePartinBtn" hover-class="buttonHightLightView" bindtap="sureTakePartinClick">确认报名</view>
 
   </scroll-view>
 

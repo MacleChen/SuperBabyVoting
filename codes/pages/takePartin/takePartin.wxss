@@ -86,7 +86,12 @@
 }
 
 .deleteImageView {
+  width: 70rpx;
+  height: 70rpx;
   position: absolute;
+  text-align: center;
+  line-height: 70rpx;
+  margin: -190rpx auto 0 90rpx;
 }
 
 .setCoverImageView {

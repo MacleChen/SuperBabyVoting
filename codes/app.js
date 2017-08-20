@@ -1,4 +1,5 @@
 import superBaby from '/superBaby/index';
+import wux from 'components/wux';
 
 //app.js
 App({
@@ -30,4 +31,7 @@ App({
           });
         });
     },
+
+    // 通过scope来引入wux函数
+    wux: (scope) => new wux(scope)
 })

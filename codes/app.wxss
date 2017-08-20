@@ -1,4 +1,7 @@
 /**app.wxss**/
+
+@import 'components/wux.wxss';
+
 .container {
   padding: 0; 
   margin-top: 0; 

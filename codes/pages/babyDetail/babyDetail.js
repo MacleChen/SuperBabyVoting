@@ -135,9 +135,8 @@ Page({
 
     // 投票按钮点击
     voteClick: function (e) {
-      wx.showModal({
-        title: '提示',
-        content: '我要投票',
+      wx.showToast({
+        title: '投票成功~',
       })
     },
 
