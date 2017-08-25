@@ -3,11 +3,11 @@
   <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}">
     <!-- 用户姓名和头像 -->
     <view class="userHeaderView">
-      <view class="userHeaderItem" style="text-align:right; margin-top:5rpx;">
-         <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView" mode="aspectFill"></image>
+      <view wx:if="{{babyDetial.showImage.length > 0}}" class="userHeaderItem" style="text-align:right; margin-top:5rpx;">
+         <image src="{{hostImage+babyDetial.showImage}}" class="userHeaderImageView" mode="aspectFill"></image>
       </view>
       <view class="userHeaderItem">
-        <text style="font-size:32rpx; font-weight:bolder; padding-left:10rpx;">刘淑艳</text>
+        <text style="font-size:32rpx; font-weight:bolder; padding-left:10rpx;">{{babyDetial.name}}</text>
       </view>
     </view>
 
@@ -22,7 +22,7 @@
           <text class="voteText">编号</text>
         </view>
         <view class="userPropertyItemSubView">
-          <text class="voteText">123456</text>
+          <text class="voteText">{{babyDetial.number}}</text>
         </view>
       </view>
       <!-- 票数 -->
@@ -32,7 +32,7 @@
           <text class="voteText">票数</text>
         </view>
         <view class="userPropertyItemSubView">
-          <text class="voteText">123456</text>
+          <text class="voteText">{{babyDetial.voteCount}}</text>
         </view>
       </view>
       <!-- 热度 -->
@@ -42,7 +42,7 @@
           <text class="voteText">热度</text>
         </view>
         <view class="userPropertyItemSubView">
-          <text class="voteText">123456</text>
+          <text class="voteText">{{babyDetial.viewCount}}</text>
         </view>
       </view>
     </view>
@@ -50,31 +50,31 @@
     <!-- 用户宣言 -->
     <view style="margin-left:10rpx;">
       <image class="voteCountImg" src="/images/detail_voice.png" />
-      <text class="voteText">宣言：</text>
+      <text class="voteText">宣言：{{babyDetial.declaration}}</text>
     </view>
 
     <view class="userImagesShowView">
       <swiper class="index-swiper" indicator-dots="true" interval="1000" current="{{currentSwiperIndex}}" bindchange="swiperBindChange">
-        <block wx:key="id" wx:for="{{dataUserImagesList}}" >
-          <swiper-item data-id="{{item}}" bindtap="toDetailPage" data-array="{{dataUserImagesList}}">
-            <image mode="aspectFill" src="{{dataUserImagesList[index]}}" style="width:100%;height:100%; border-radius:15rpx;" />
+        <block wx:key="id" wx:for="{{babyDetial.partnerImages}}">
+          <swiper-item data-id="{{hostImage+item}}" bindtap="toDetailPage" data-array="{{babyDetial.partnerImages}}">
+            <image mode="aspectFill" src="{{hostImage+item}}" style="width:100%;height:100%; border-radius:15rpx;" />
           </swiper-item>
         </block>
       </swiper> 
         <!-- 翻页 -->
       <view class="detailPrevAndNextImageBtn">
-        <view class="detailImageBtn" bindtap="swiperPrevPageClick" data-id="{{3}}">
+        <view class="detailImageBtn" bindtap="swiperPrevPageClick" data-id="{{babyDetial.partnerImages.length}}">
            <image src="/images/detail_prev_page.png" style="width:32rpx; height:32rpx;" mode="aspectFit"></image> 
         </view>
-        <view class="detailImageBtn" bindtap="swiperNextPageClick" data-id="{{3}}">
+        <view class="detailImageBtn" bindtap="swiperNextPageClick" data-id="{{babyDetial.partnerImages.length}}">
            <image src="/images/detail_next_page.png" style="width:32rpx; height:32rpx;" mode="aspectFit"></image>
         </view>
       </view> 
       
     </view>
 
-    <!-- “我要参加按钮” -->
-    <view class="iWantInBtnView" bindtap="iWantToPartIn" data-id="1">
+    <!-- “我要参加按钮” --> 
+    <view wx:if="{{!isHasPartner}}" class="iWantInBtnView" bindtap="iWantToPartIn" data-id="1">
       <text>我也要参加</text>
     </view>
 
@@ -87,23 +87,23 @@
 
     <!-- list 展示 -->
     <view class="listShowView">
-      <block wx:key="id" wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" >
+      <block wx:key="id" wx:for="{{dataList}}" >
         <view class="listShowViewCell">
           <!-- 图片 -->
           <view style="width:20%; margin:20rpx auto auto 20rpx;">
-            <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" style="width:88rpx; height:88rpx; border-radius:10rpx;" mode="aspectFill"></image>
+            <image src="{{item.userIcon}}" style="width:88rpx; height:88rpx; border-radius:10rpx;" mode="aspectFill"></image>
           </view>
 
           <!-- 描述 -->
           <view style="width:95%;">
             <!-- 描述 -->
-            <view class="voteText" style="margin-top:20rpx; color:#222222;">保罗骑士《李敏13384310245》，给TA送了熊二！</view>
+            <view class="voteText" style="margin-top:20rpx; color:#222222;">{{item.userName}}，给TA送了{{item.giftName}}！</view>
             <!-- 日期 -->
-            <view class="voteText" style="margin-top:10rpx; font-size:24rpx; color:#cccccc">2017-08-09 21:31:22</view>
+            <view class="voteText" style="margin-top:10rpx; font-size:24rpx; color:#cccccc">{{item.time}}</view>
           </view>
         </view>  
       </block>
-      <view class="listShowView voteText listLookMoreview">查看更多</view>
+      <view class="listShowView voteText listLookMoreview" bindtap="lookMoreBabyList">查看更多</view>
 
     </view>
     <!-- 留白 -->

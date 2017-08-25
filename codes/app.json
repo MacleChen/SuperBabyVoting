@@ -11,7 +11,8 @@
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#40ba36",
         "navigationBarTitleText": "超级宝宝人气评选",
-        "navigationBarTextStyle": "white"
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
     },
     "tabBar": {
         "color": "#999999",

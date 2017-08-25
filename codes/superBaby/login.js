@@ -1,9 +1,9 @@
 var config = require('./config')
 var constant = require('./constant')
 
-const LOGIN_URL = `${config.host}/WeixinVote/user/login`;//NAMI登录服务
-const FULL_USER_INFO_URL = `${config.host}/WeixinVote/user/getUserInfo`;//获取unionid并保存在服务端
-const CHECK_LOGIN_URL = `${config.host}/WeixinVote/user/checkLosgin`;//校验是否登录
+const LOGIN_URL = `${config.host}user/login`;//NAMI登录服务
+const FULL_USER_INFO_URL = `${config.host}user/getUserInfo`;//获取unionid并保存在服务端
+const CHECK_LOGIN_URL = `${config.host}user/checkLogin`;//校验是否登录
 
 /**
  * 校验登录
@@ -43,8 +43,9 @@ var login = (success, fail) => {
     checkLogin(() => {
         //DO NOTHING
         console.log("已登录");
+        getUserInfo(success, fail);
     }, () => {
-        remoteLogin(success, fail)
+        remoteLogin(success, fail);
     });
 }
 
@@ -56,34 +57,50 @@ var remoteLogin = (success, fail) => {
     wx.login({
         success: function (loginRes) {
             console.log("登录获取code", loginRes);
-            wx.request({
-                url: LOGIN_URL,
-                data: {
-                    code: loginRes.code
-                },
-                complete: function (res) {
+            wx.getUserInfo({
+              success: function (res) {
+                wx.request({
+                  url: LOGIN_URL,
+                  data: {
+                    code: loginRes.code,
+                    nickName: res.userInfo.nickName,
+                    avatarUrl: res.userInfo.avatarUrl
+                  },
+                  complete: function (res) {
                     if (res.statusCode != 200) {//失败
-                        console.error("登陆失败", res);
-                        var data = res.data || { msg: '无法请求服务器' };
-                        if (typeof fail == "function") {
-                            fail();
-                        } else {
-                            wx.showModal({
-                                title: '提示',
-                                content: data.msg,
-                                showCancel: false
-                            });
-                        }
+                      console.error("登陆失败", res);
+                      var data = res.data || { msg: '无法请求服务器' };
+                      if (typeof fail == "function") {
+                        fail();
+                      } else {
+                        wx.showModal({
+                          title: '提示',
+                          content: data.msg,
+                          showCancel: false
+                        });
+                      }
                     } else {//成功
+
+                      if (res.data.data.openId == null) {
+                        wx.showModal({
+                          title: '提示',
+                          content: "无法登录服务器",
+                          showCancel: false
+                        });
+                      } else {
                         console.log("登录成功", res);
                         wx.setStorage({
-                            key: constant.OPEN_ID,
-                            data: res.data.data.openId
+                          key: constant.OPEN_ID,
+                          data: res.data.data.openId
                         })
                         typeof success == "function" && success();
+                      }
+
                     }
-                }
-            })
+                  }
+                })
+              }
+            });
         }
     })
 }
@@ -101,7 +118,15 @@ var getUserInfo = (success, fail) => {
                         encryptedData: res.encryptedData,
                         iv: res.iv
                     }, success: function (requestRes) {
-                        typeof success == "function" && success(userInfo);
+                      if (requestRes.statusCode != 200) {
+                        console.log("data:" + requestRes.data);
+                        return;
+                      }
+                      if (requestRes.data.status != 101) {
+                        console.log("data:" + requestRes.data.msg);
+                        return;
+                      }
+                      typeof success == "function" && success(requestRes.data.data);
                     }
                 });
             } else {

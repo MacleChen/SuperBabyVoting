@@ -1,17 +1,27 @@
 //index.js
 //获取应用实例
 var app = getApp()
+var config = require('../../superBaby/config')
+
+/**网络请求接口 */
+// 获取首页相关信息
+const webInterface_getHomeInfo = `${config.host}subject/getLatest`
+// 获取宝宝排行榜列表
+const webInterface_getBabyRankList = `${config.host}rank/getRank`
+
 Page({
     data: {
+        hostImage: config.hostImage,
         windowHeight: 654,
         maxtime: "",
         isHiddenLoading: true,
         isHiddenToast: true,
-        dataList: {},
-        countDownDay: 0,
-        countDownHour: 0,
-        countDownMinute: 0,
-        countDownSecond: 0,
+        dataTopShowInfo: {}, // 首页相关数据
+        dataList: [],        // 宝宝排行榜数据list
+        countDownDay: '00',
+        countDownHour: '0',
+        countDownMinute: '00',
+        countDownSecond: '00',
     },
 
     onLoad: function () {
@@ -22,7 +32,27 @@ Page({
 
     // 页面渲染完成后 调用
     onReady: function () {
-      var totalSecond = 1505540080 - Date.parse(new Date()) / 1000;
+      // 首页相关数据请求
+      this.webInterfaceGetHomeInfo("");
+
+      // 获取宝宝的排行榜
+      this.webInterface_getBabyRankList();
+
+      // console.log("用户信息" + app.data.userInfo.avatarUrl);
+    },
+
+    // 设置倒计时
+    deadLineTimeSetting: function (e) {
+      var currentmillSecond = Date.parse(new Date());
+      var totalSecond = e - currentmillSecond / 1000;
+
+      // 判断活动是否开始
+      if (this.data.dataTopShowInfo.startTime > currentmillSecond) {
+        wx.showToast({
+          title: '活动尚未开始',
+        });
+        return;
+      }
 
       var interval = setInterval(function () {
         // 秒数
@@ -70,11 +100,75 @@ Page({
       }.bind(this), 1000);
     },
 
+
     //cell事件处理函数
     bindCellViewTap: function (e) {
-        var id = e.currentTarget.dataset.id;
+      var babyId = e.currentTarget.dataset.id;
         wx.navigateTo({
-          url: '../babyDetail/babyDetail?id=' + id
+          url: '../babyDetail/babyDetail?id=' + babyId
         });
+    },
+
+
+    /** 网络接口请求 */
+    // 获取首页图片和整理数据
+    webInterfaceGetHomeInfo: function (e) {
+      var that = this;
+      //  请求数据
+      wx.request({
+        url: webInterface_getHomeInfo,
+        method: "GET",
+        success: function (res) {
+          if (res.statusCode != 200) {
+            console.log("data:" + res.data);
+            return;
+          }
+          if (res.data.status != 101) {
+            console.log("data123:" + res.data.msg);
+            return;
+          }
+
+          console.log("data:" + res.data.data.createdTime);
+          that.setData({
+            dataTopShowInfo: res.data.data,
+          });
+          that.deadLineTimeSetting(that.data.dataTopShowInfo.endTime / 1000);
+        },
+        fail: function () {
+          console.log("失败了");
+        }
+      });
+    },
+
+    // 获取宝宝的排行榜
+    webInterface_getBabyRankList: function (e) {
+      var that = this;
+      //  请求数据
+      wx.request({
+        url: webInterface_getBabyRankList,
+        data: {
+          size: "20"
+        },
+        method: "GET",
+        success: function (res) {
+          if (res.statusCode != 200) {
+            console.log("data:" + res.data);
+            return;
+          }
+          if (res.data.status != 101) {
+            console.log("data123:" + res.data.msg);
+            return;
+          }
+
+          // 获取数据成功
+          that.setData({
+            dataList: res.data.data,
+          });
+          
+        },
+        fail: function () {
+          console.log("失败了");
+        }
+      });
     },
 })

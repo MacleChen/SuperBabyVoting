@@ -3,11 +3,11 @@
   <scroll-view scroll-x="false" scroll-y="true" style="height: {{windowHeight+'px'}}">
     <!-- 用户姓名和头像 -->
     <view class="userHeaderView">
-      <view style="text-align:center; padding-top:30rpx;">
-         <image src="http://pic.58pic.com/58pic/14/03/93/25r58PICBmx_1024.jpg" class="userHeaderImageView" mode="aspectFill"></image>
+      <view wx:if="{{babyDetial.showImage.length > 0}}" style="text-align:center; padding-top:30rpx;">
+         <image src="{{hostImage+babyDetial.showImage}}" class="userHeaderImageView" mode="aspectFill"></image>
       </view>
       <view class="userHeaderNameView">
-        给<text style="color:#04be02;">刘淑艳</text>送礼
+        给<text style="color:#04be02;">{{babyDetial.name}}</text>送礼
       </view>
     </view>
 
@@ -22,7 +22,7 @@
           <text class="voteText">编号</text>
         </view>
         <view class="userPropertyItemSubView">
-          <text class="voteText">123456</text>
+          <text class="voteText">{{babyDetial.number}}</text>
         </view>
       </view>
       <!-- 票数 -->
@@ -32,7 +32,7 @@
           <text class="voteText">票数</text>
         </view>
         <view class="userPropertyItemSubView">
-          <text class="voteText">123456</text>
+          <text class="voteText">{{babyDetial.voteCount}}</text>
         </view>
       </view>
       <!-- 热度 -->
@@ -42,30 +42,30 @@
           <text class="voteText">热度</text>
         </view>
         <view class="userPropertyItemSubView">
-          <text class="voteText">123456</text>
+          <text class="voteText">{{babyDetial.viewCount}}</text>
         </view>
       </view>
     </view>
 
   <!-- listView -->
   <view style="margin:30rpx 25rpx 0 25rpx;">
-      <block wx:key="id" wx:for="{{[1,2,3,4,5,6]}}">
+      <block wx:key="id" wx:for="{{dataList}}">
       <!--整个item开始-->
           <!-- if  -->
           <view wx:if="{{index == selectedGiftIndex}}" class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}" style="border-color: red">
           <!-- 礼物图片 -->
               <view class="gitfImageView">
-                <image src="http://oh6xiseuf.bkt.clouddn.com/gift1.png" style="width:100%;height:70rpx;" mode="aspectFit"></image>
+                <image src="{{hostImage+item.icon}}" style="width:100%;height:70rpx;" mode="aspectFit"></image>
                 <!-- <image class="userAvator" src="{{item.profile_image}}"  /> -->
               </view>
               
               <!-- 名称1 -->
-              <view class="giftTitleOneView">么么哒</view>
+              <view class="giftTitleOneView">{{item.name}}</view>
               <!-- 名称2 -->
-              <view class="giftTitleTwoView">么么哒</view>
+               <!-- <view class="giftTitleTwoView">{{item.price}}</view>  -->
 
               <!-- 票数 -->
-              <view class="giftTicketView">33票</view>
+              <view class="giftTicketView">{{item.voteCount}}票</view>
             
           </view>
 
@@ -73,17 +73,17 @@
           <view wx:else class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}">
           <!-- 礼物图片 -->
               <view class="gitfImageView">
-                <image src="http://oh6xiseuf.bkt.clouddn.com/gift1.png" style="width:100%;height:70rpx;" mode="aspectFit"></image>
+                <image src="{{hostImage+item.icon}}" style="width:100%;height:70rpx;" mode="aspectFit"></image>
                 <!-- <image class="userAvator" src="{{item.profile_image}}"  /> -->
               </view>
               
               <!-- 名称1 -->
-              <view class="giftTitleOneView">么么哒</view>
+              <view class="giftTitleOneView">{{item.name}}</view>
               <!-- 名称2 -->
-              <view class="giftTitleTwoView">么么哒</view>
+               <!-- <view class="giftTitleTwoView">{{item.price}}</view>  -->
 
               <!-- 票数 -->
-              <view class="giftTicketView">33票</view>
+              <view class="giftTicketView">{{item.voteCount}}票</view>
             
           </view>
 

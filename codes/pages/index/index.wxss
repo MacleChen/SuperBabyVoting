@@ -42,7 +42,7 @@
 
 .venues_item {
   display: inline-block;
-  width: 47%;
+  width: 46.4%;
   margin: 16rpx 0 0 2%;
   border: 2rpx solid #d9d9d9;
   box-shadow: 1rpx 1rpx 1rpx #d9d9d9;
@@ -76,4 +76,11 @@
   height:80rpx;
   position: absolute;
   margin:-50rpx auto auto 35%;
+}
+
+
+.showDetailTextView {
+  width: 90%;
+  margin: 20rpx 5% 0 5%;
+  font-size: 34rpx;
 }

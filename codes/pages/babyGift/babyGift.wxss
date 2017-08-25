@@ -72,13 +72,13 @@
 
 .giftTitleTwoView {
   margin-top: 10rpx;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #666666;
   text-align: center;
 }
 
 .giftTicketView {
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: red;
   text-align: center;
 }

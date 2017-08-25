@@ -3,7 +3,7 @@
     <!-- 顶部图片展示 -->
    <view class="topImageView"> 
    <!-- width:100%;height:100rpx;  -->
-    <image src="http://oh6xiseuf.bkt.clouddn.com/topViewImage001.png" style="width:100%; background-size:cover;"/>  
+     <image wx:if="{{dataTopShowInfo.indexImage.length > 0}}" src="{{hostImage+dataTopShowInfo.indexImage}}" style="width:100%; background-size:cover;"/>   
   </view>
 
   <!-- 投票数据显示view -->
@@ -20,7 +20,7 @@
         </view>
         <!-- value -->
         <view>
-          <text class="voteText">100</text>
+          <text class="voteText">{{dataTopShowInfo.participateCount}}</text>
         </view>
       </view>
       <view style="background-color:#d9d9d9; height:80%; width:2rpx;"></view>
@@ -36,7 +36,7 @@
         </view>
         <!-- value -->
         <view>
-          <text class="voteText">200</text>
+          <text class="voteText">{{dataTopShowInfo.voteCount}}</text>
         </view>
       </view>
       <view style="background-color:#d9d9d9; height:80%; width:2rpx;"></view>
@@ -52,7 +52,7 @@
         </view>
         <!-- value -->
         <view>
-          <text class="voteText">300</text>
+          <text class="voteText">{{dataTopShowInfo.viewCount}}</text>
         </view>
       </view>
     </view>
@@ -93,22 +93,22 @@
   </view>
 
     <!-- listView -->
-    <block wx:key="id" wx:for="{{[1,2,3,4,5,6,7,8,9]}}">
+    <block wx:key="id" wx:for="{{dataList}}">
     <!--整个item开始-->
-        <view class="venues_item" bindtap="bindCellViewTap" data-id="{{index}}">
+        <view class="venues_item" bindtap="bindCellViewTap" data-id="{{item.id}}">
         <!-- 用户图片 -->
             <view class="cellHeaderView">
-              <text class="cellHeaderTitle">58号，344票</text>
+              <text class="cellHeaderTitle">{{item.number}}号，{{item.voteCount}}票</text>
               <!-- <image class="userAvator" src="{{item.profile_image}}"  /> -->
             </view>
-            <image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" style="width:100%;" mode="aspectFill"></image>
+            <image src="{{hostImage+item.showImage}}" style="width:100%;" mode="aspectFill"></image>
             <!-- 投票 -->
             <view class="cellVoteImage" bindtap="voteClick" data-id="{{index}}"> 
               <image src="/images/home_vote.png" style="width:80rpx; height:80rpx;"></image>
             </view>
 
             <view class="cellBottomView">
-              <text class="voteText" style="padding-left:10rpx;">张小逗</text>
+              <text class="voteText" style="padding-left:10rpx;">{{item.name}}</text>
             </view>
           
         </view>
@@ -116,7 +116,7 @@
      </block>
 
      <!-- 加载更多 -->
-    <view class="countDownAllView" bindtap="getMoreBabyListData">
+    <view class="countDownAllView" bindtap="lookMoreBabyList">
       <text class="countDownTimeTitle">查看更多</text>
     </view>
 
@@ -127,10 +127,14 @@
       <text class="voteText" style="color:#2c2c2c;">活动规则</text>
   </view>
 
+  <!-- Show Detail Text -->
+  <view class="showDetailTextView">
+    {{dataTopShowInfo.description}}
+  </view>
   <!-- Show Detail Image View -->
-  <block wx:key="id" wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="i">
-    <view style="margin-top:20rpx; text-align:center">
-        <image src="http://oh6xiseuf.bkt.clouddn.com/baby001.jpeg" style="width:95%;" mode="aspectFill"></image>
+  <block wx:key="id" wx:for="{{dataTopShowInfo.subjectDesImages}}">
+    <view style="margin-top:20rpx; text-align:center" bindtap="imageLongPreViewClick" data-id="{{hostImage+item.image}}">
+         <image src="{{hostImage+item.image}}" style="width:95%;" mode="aspectFit"></image> 
     </view>
   </block>
   
